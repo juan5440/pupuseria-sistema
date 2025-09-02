@@ -1,0 +1,402 @@
+            :root {
+               --bg: #f8f9fa;
+               --text: #333;
+               --card-bg: white;
+               --menu-bg: #fdf6e3;
+               --border: #ddd;
+               --primary: #27ae60;
+               --primary-hover: #219a52;
+               --danger: #e74c3c;
+               --danger-hover: #c0392b;
+               --header: #d35400;
+               --table-header: #f1c40f;
+               --ticket-bg: rgba(0, 0, 0, 0.7);
+           }
+           
+           body.dark-mode {
+               --bg: #1a1a1a;
+               --text: #eee;
+               --card-bg: #2d2d2d;
+               --menu-bg: #3c3c3c;
+               --border: #555;
+               --primary: #2ecc71;
+               --primary-hover: #27ae60;
+               --danger: #e74c3c;
+               --danger-hover: #c0392b;
+               --header: #f39c12;
+               --table-header: #e67e22;
+               --ticket-bg: rgba(0, 0, 0, 0.9);
+           }
+           
+           body {
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               background-color: var(--bg);
+               color: var(--text);
+               padding: 20px;
+               transition: background-color 0.3s, color 0.3s;
+           }
+           
+           .container {
+               max-width: 1000px;
+               margin: auto;
+               background: var(--card-bg);
+               padding: 30px;
+               border-radius: 12px;
+               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+           }
+           
+           h1 {
+               text-align: center;
+               color: var(--header);
+               margin-bottom: 10px;
+           }
+           
+           p.subtitle {
+               text-align: center;
+               color: #7f8c8d;
+               margin-bottom: 30px;
+           }
+           
+           .header-actions {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               margin-bottom: 20px;
+               flex-wrap: wrap;
+               gap: 10px;
+           }
+           
+           .theme-toggle {
+               padding: 8px 12px;
+               background: var(--primary);
+               color: white;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+           }
+           
+           .grid {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+               gap: 30px;
+           }
+           
+           @media (max-width: 768px) {
+               .grid {
+                   grid-template-columns: 1fr;
+               }
+           }
+           
+           .menu {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+               gap: 15px;
+           }
+           
+           .producto {
+               border: 1px solid var(--border);
+               padding: 15px;
+               border-radius: 8px;
+               background-color: var(--menu-bg);
+               text-align: center;
+           }
+           
+           .producto h3 {
+               margin: 0 0 10px;
+               color: var(--header);
+           }
+           
+           .producto p {
+               margin: 5px 0;
+               color: var(--text);
+               font-size: 0.9em;
+           }
+           
+           button {
+               padding: 8px 12px;
+               margin-top: 8px;
+               background-color: var(--primary);
+               color: white;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 14px;
+           }
+           
+           button:hover {
+               background-color: var(--primary-hover);
+           }
+           
+           button.remove {
+               background-color: var(--danger);
+           }
+           
+           button.remove:hover {
+               background-color: var(--danger-hover);
+           }
+           
+           .carrito {
+               border: 1px solid var(--border);
+               border-radius: 8px;
+               overflow: hidden;
+           }
+           
+           table {
+               width: 100%;
+               border-collapse: collapse;
+           }
+           
+           th,
+           td {
+               padding: 12px 15px;
+               text-align: left;
+               border-bottom: 1px solid var(--border);
+           }
+           
+           th {
+               background-color: var(--table-header);
+               color: #333;
+           }
+           
+           tr:hover {
+               background-color: rgba(0, 0, 0, 0.05);
+           }
+           
+           .total-row td {
+               font-weight: bold;
+               font-size: 1.1em;
+           }
+           
+           .actions {
+               margin-top: 20px;
+               display: flex;
+               flex-direction: column;
+               gap: 12px;
+           }
+           
+           .actions input {
+               padding: 10px;
+               width: 100%;
+               max-width: 250px;
+               border: 1px solid var(--border);
+               border-radius: 4px;
+               background: var(--card-bg);
+               color: var(--text);
+               font-size: 16px;
+           }
+           
+           .actions button {
+               max-width: 250px;
+               padding: 12px;
+               font-size: 16px;
+           }
+           
+           .cambio {
+               font-size: 1.2em;
+               color: var(--primary);
+               font-weight: bold;
+               margin-top: 10px;
+           }
+           
+           .error {
+               color: var(--danger);
+               font-weight: bold;
+           }
+           /* Historial */
+           
+           .historial {
+               margin-top: 30px;
+               border: 1px solid var(--border);
+               border-radius: 8px;
+               overflow: hidden;
+           }
+           
+           .historial h2 {
+               margin-bottom: 15px;
+           }
+           
+           .total-footer {
+               font-weight: bold;
+               text-align: right;
+               padding: 15px;
+               background: var(--table-header);
+               color: #333;
+           }
+           /* Ticket */
+           
+           .ticket {
+               display: none;
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background: var(--ticket-bg);
+               justify-content: center;
+               align-items: center;
+               z-index: 1000;
+           }
+           
+           .ticket-content {
+               background: white;
+               padding: 30px;
+               width: 350px;
+               border-radius: 10px;
+               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+               text-align: center;
+               font-family: monospace;
+               max-height: 90vh;
+               overflow-y: auto;
+           }
+           
+           .ticket-content h2 {
+               color: var(--header);
+           }
+           
+           .ticket-content pre {
+               text-align: left;
+               white-space: pre-wrap;
+               margin: 15px 0;
+           }
+           
+           .ticket-buttons {
+               margin-top: 20px;
+           }
+           
+           .ticket-buttons button {
+               margin: 0 5px;
+               padding: 10px 15px;
+               font-size: 14px;
+           }
+           
+           .close-ticket {
+               background-color: #95a5a6;
+           }
+           
+           .close-ticket:hover {
+               background-color: #7f8c8d;
+           }
+           /* ===== VARIABLES DE TEMA ===== */
+           
+            :root {
+               --bg: #f8f9fa;
+               --text: #333;
+               --card-bg: white;
+               --border: #ddd;
+               --btn-edit: #f39c12;
+               --btn-delete: #e74c3c;
+               --header: #d35400;
+               --table-header: #f1c40f;
+               --link: #3498db;
+           }
+           
+           body.dark-mode {
+               --bg: #1a1a1a;
+               --text: #eee;
+               --card-bg: #2d2d2d;
+               --border: #555;
+               --btn-edit: #e67e22;
+               --btn-delete: #c0392b;
+               --header: #f39c12;
+               --table-header: #e67e22;
+               --link: #3498db;
+           }
+           /* ===== ESTILOS GENERALES ===== */
+           
+           body {
+               font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+               background-color: var(--bg);
+               color: var(--text);
+               margin: 0;
+               padding: 20px;
+               transition: background-color 0.3s, color 0.3s;
+           }
+           
+           .container {
+               max-width: 1000px;
+               margin: auto;
+               background: var(--card-bg);
+               padding: 30px;
+               border-radius: 12px;
+               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+           }
+           
+           h1 {
+               color: var(--header);
+               text-align: center;
+               margin-bottom: 10px;
+           }
+           
+           .subtitle {
+               text-align: center;
+               color: #7f8c8d;
+               margin-bottom: 20px;
+           }
+           /* Botón de tema */
+           
+           .theme-toggle {
+               padding: 8px 12px;
+               background: #27ae60;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 14px;
+           }
+           
+           .dark-mode .theme-toggle {
+               background: #2ecc71;
+           }
+           /* Tabla */
+           
+           .historial-table th {
+               background-color: var(--table-header) !important;
+               color: #333 !important;
+           }
+           
+           .historial-table td,
+           .historial-table th {
+               border-bottom: 1px solid var(--border) !important;
+               color: var(--text) !important;
+           }
+           
+           .dark-mode .historial-table tr:hover {
+               background-color: #3c3c3c !important;
+           }
+           /* Botones de acción */
+           
+           button[style*="background:#f39c12"] {
+               background: var(--btn-edit) !important;
+           }
+           
+           button[style*="background:#e74c3c"] {
+               background: var(--btn-delete) !important;
+           }
+           /* Modal */
+           
+           .ticket-content {
+               background: white;
+           }
+           
+           .dark-mode .ticket-content {
+               background: #2d2d2d;
+               color: var(--text);
+           }
+           
+           .dark-mode .ticket-content pre,
+           .dark-mode .ticket-content h2 {
+               color: var(--text);
+           }
+           /* DataTables en modo oscuro (ajuste extra) */
+           
+           .dark-mode .dataTables_wrapper .dataTables_length select,
+           .dark-mode .dataTables_wrapper .dataTables_filter input {
+               background: #2d2d2d !important;
+               color: var(--text) !important;
+               border: 1px solid var(--border) !important;
+           }
+           
+           .dark-mode .dataTables_info,
+           .dark-mode .dataTables_paginate {
+               color: var(--text) !important;
+           }

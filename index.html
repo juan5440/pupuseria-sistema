@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Ventas - Pupusería</title>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header-actions">
+            <h1>Pupusería "El Sabor de Casa"</h1>
+            <button class="theme-toggle" id="themeToggle">Modo Oscuro</button>
+        </div>
+        <p class="subtitle">Deliciosas pupusas, panes con pollo y refrescantes bebidas</p>
+
+        <div class="grid">
+            <!-- Menú -->
+            <div>
+                <button onclick="location.href='./menu.html'" style="background-color: #3498db;"><i class="fas fa-utensils"></i> Menú</button>
+                <hr>
+                <div class="menu" id="menuProductos">
+                    <!-- Los productos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Carrito -->
+            <div>
+                <h2>Carrito de Compras</h2>
+                <div class="carrito">
+                    <table id="carritoTabla">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cant</th>
+                                <th>Total</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carritoBody"></tbody>
+                        <tfoot>
+                            <tr class="total-row">
+                                <td colspan="3" style="text-align: right;">Total:</td>
+                                <td id="totalCarrito">$0.00</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="actions">
+                    <label for="pago">Pago del cliente: $</label>
+                    <input type="number" id="pago" step="0.01" placeholder="Ingrese pago" />
+
+                    <div id="resultado" class="cambio"></div>
+
+                    <button onclick="generarTicket()" style="background-color: #3498db;">Generar Ticket</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historial de Ventas -->
+        <div class="historial">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h2>Historial de Ventas</h2>
+            </div>
+
+            <table id="historialTable" class="historial-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                        <th>Pago</th>
+                        <th>Cambio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="historialBody"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Total de Ventas:</strong></td>
+                        <td id="totalVentas">$0.00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal del Ticket -->
+    <div class="ticket" id="ticketModal">
+        <div class="ticket-content">
+            <h2>Ticket de Venta</h2>
+            <pre id="ticketTexto"></pre>
+            <div class="ticket-buttons">
+                <button onclick="imprimirTicket()">Imprimir</button>
+                <button onclick="cerrarTicket()" class="close-ticket">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery y DataTables -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
