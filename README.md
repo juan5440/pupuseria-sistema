@@ -102,8 +102,16 @@ Backend: PHP 8.2, MySQL
 
 Frontend: HTML5, Bootstrap 5, jQuery, AJAX
 
+
 Extras: DataTables, SweetAlert
 
 📜 Licencia
 Este proyecto es de uso libre para fines educativos y comerciales.
 Si lo mejoras, ¡comparte tus aportes! 🤝
+
+Imagenes:
+<img width="1325" height="807" alt="Captura de pantalla 2025-09-02 114057" src="https://github.com/user-attachments/assets/8888bbda-20ef-4bb2-b250-38f13e280b4d" />
+<img width="1322" height="730" alt="Captura de pantalla 2025-09-02 114127" src="https://github.com/user-attachments/assets/f8ddd7d9-5591-4cb7-a7c6-793c8467d32e" />
+<img width="1355" height="901" alt="Captura de pantalla 2025-09-02 114018" src="https://github.com/user-attachments/assets/a7e163e4-5bab-417e-9b39-54b48a80e2d0" />
+
+
