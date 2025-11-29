@@ -23,7 +23,15 @@ class HistoryFrame(tk.Frame):
             command=self.load_sales,
             bg=Styles.SECONDARY,
             fg=Styles.WHITE
-        ).pack(side="right")
+        ).pack(side="right", padx=5)
+        
+        tk.Button(
+            header, 
+            text="🗑️ Eliminar Venta", 
+            command=self.delete_selected,
+            bg=Styles.DANGER,
+            fg=Styles.WHITE
+        ).pack(side="right", padx=5)
 
         # Table
         columns = ("id", "fecha", "total", "pago", "cambio")
@@ -54,6 +62,20 @@ class HistoryFrame(tk.Frame):
         for s in sales:
             # s: (id, fecha, total, pago, cambio)
             self.tree.insert("", "end", values=(s[0], s[1], f"${s[2]:.2f}", f"${s[3]:.2f}", f"${s[4]:.2f}"))
+
+    def delete_selected(self):
+        selected = self.tree.selection()
+        if not selected:
+            messagebox.showwarning("Advertencia", "Seleccione una venta para eliminar")
+            return
+        
+        item = self.tree.item(selected[0])
+        venta_id = item['values'][0]
+        
+        if messagebox.askyesno("Confirmar", f"¿Está seguro de eliminar la venta #{venta_id}?"):
+            self.db.delete_sale(venta_id)
+            self.load_sales()
+            messagebox.showinfo("Éxito", "Venta eliminada correctamente")
 
     def show_details(self, event):
         selected = self.tree.selection()

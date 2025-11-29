@@ -154,3 +154,10 @@ class Database:
         details = cursor.fetchall()
         conn.close()
         return details
+
+    def delete_sale(self, venta_id):
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM ventas WHERE id = ?", (venta_id,))
+        conn.commit()
+        conn.close()
